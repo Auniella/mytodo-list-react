@@ -1,13 +1,226 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+html {
+  font-size: 62.5%;
+  padding: 1.5rem;
+  background-color: #dadad9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  width: 55rem;
+  padding: 3rem;
+  min-height: 100vh;
+  background-color: #eae7da;
+  box-shadow: 0 0.2rem 0.8rem #444444;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 4rem;
+  color: #ba3b54;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+input[type="text"] {
+  width: 70%;
+  font-size: 1.4rem;
+  margin-right: 3%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 0.2rem solid #0b5351;
+  box-shadow: 0 0.1rem 0.3rem #0b5351;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+  padding: 0.4rem 1.4rem;
+  border-radius: 0.7rem;
+  transition: box-shadow 0.2s, opacity 0.2s transform 0.5s;
+}
+
+button:hover {
+  filter: brightness(90%);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button.btn {
+  background-color: transparent;
+  border: 0.2rem solid #0b5351;
+  box-shadow: 0.2rem 0.2rem 0.1rem #0b5351;
+}
+
+button.btn:hover,
+button.filtrer:hover {
+  box-shadow: 0 0.1rem 0.1rem #0b5351;
+}
+
+.filtresDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+button.filtrer {
+  color: #ffffff;
+  margin-right: 2.85rem;
+  border: 2px solid #0b5351;
+  background-color: #0c6563;
+  margin-top: 2.5rem;
+  box-shadow: 0.2rem 0.2rem 0.1rem #0b5351;
+  max-width: 10rem;
+  flex: 1 1 25%;
+}
+
+button.filtrer:last-child {
+  margin-right: 0
+}
+
+h2 {
+  margin-top: 6rem;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+}
+
+.tasksDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+  position: relative;
+}
+
+button.supprimer {
+  color: #ffffff;
+  background-color: #b7435a;
+  border: 0.2rem solid #b33951;
+  box-shadow: 0.2rem 0.2rem 0.1rem #b33951;
+}
+
+button.supprimer:hover {
+  box-shadow: 0 0.1rem 0.1rem #b33951;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+
+label {
+  font-size: 1.6rem;
+  position: relative;
+  padding-left: 3rem;
+  cursor: pointer;
+}
+
+input[type="checkbox"]+label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2rem;
+  height: 2rem;
+  border: 0.1rem solid #999;
+  background-color: #fff;
+}
+
+input[type="checkbox"]:checked+label::before {
+  background-color: #b33951;
+}
+
+label::after {
+  content: "\2713";
+  position: absolute;
+  top: 35%;
+  left: 0.4rem;
+  transform: translateY(-50%);
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  visibility: hidden;
+}
+
+input[type="checkbox"]:checked+label::after {
+  visibility: visible;
+}
+
+hr {
+  width: 100%;
+  border: 0.1rem dashed #0b5351;
+  margin-bottom: 2.5rem;
+  position: absolute;
+  top: 3.2rem;
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    width: 35rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: #ba3b54;
+    text-align: center;
+  }
+
+  input[type="text"] {
+    width: 70%;
+    font-size: 1.2rem;
+    margin-right: 3%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.7rem;
+    border: 0.2rem solid #0b5351;
+    box-shadow: 0 0.1rem 0.3rem #0b5351;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-top: 6rem;
+    text-align: center;
+  }
+
+  button {
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.2rem 1.2rem;
+  }
+
+  button.filtrer {
+    margin-right: 2.85rem;
+  }
+
+  label {
+    font-size: 1.3rem;
+  }
+
+  label::after {
+    top: 40%;
+    left: 0.6rem;
+    font-size: 1.4rem;
+  }
+
+  hr {
+    width: 100%;
+    border: 0.1rem dashed #0b5351;
+    margin-bottom: 2.5rem;
+    position: absolute;
+    top: 2.7rem;
+  }
 }
