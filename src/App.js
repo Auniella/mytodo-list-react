@@ -20,8 +20,6 @@ export default function App(props) {
     return savedTasks ? JSON.parse(savedTasks) : props.tasks;
   });
 
-  const [taskDate, setTaskDate] = useState(new Date());
-
   const [filter, setFilter] = useState("Toutes");
 
   useEffect(() => {
@@ -71,7 +69,7 @@ export default function App(props) {
   ));
 
   function addTask(name) {
-    const newTask = { name, completed: false, id: `note${nanoid()}` };
+    const newTask = { name, completed: false, id: `note${nanoid()}, date: new Date()` };
     setTasks([...tasks, newTask]);
     localStorage.setItem("Tâches", JSON.stringify(tasks));
   }
