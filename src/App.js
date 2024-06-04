@@ -55,7 +55,7 @@ export default function App(props) {
         key={task.id}
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
-        taskDate = {taskDate}
+        taskDate = {task.date}
       />
     ));
 
