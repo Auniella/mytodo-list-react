@@ -55,7 +55,7 @@ export default function App(props) {
         key={task.id}
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
-        taskDate = {task.date}
+        taskDate = {new Date(task.date)}
       />
     ));
 
@@ -69,7 +69,7 @@ export default function App(props) {
   ));
 
   function addTask(name) {
-    const newTask = { name, completed: false, id: `note${nanoid()}, date: new Date()` };
+    const newTask = { name, completed: false, id: `note${nanoid()}, date: new Date().toISOString()` };
     setTasks([...tasks, newTask]);
     localStorage.setItem("Tâches", JSON.stringify(tasks));
   }
