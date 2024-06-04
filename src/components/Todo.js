@@ -7,7 +7,7 @@ export default function Todo(props) {
         defaultChecked={props.completed}
         onChange={() => props.toggleTaskCompleted(props.id)}
       />
-      <label htmlFor={props.id}>{props.name}</label>
+      <label htmlFor={props.id}>{props.name} - <span classname="date">{props.taskDate.toLocaleString}/span></label>
       <button className="supprimer" onClick={() => props.deleteTask(props.id)}>
         Supprimer
       </button>
