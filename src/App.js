@@ -20,6 +20,8 @@ export default function App(props) {
     return savedTasks ? JSON.parse(savedTasks) : props.tasks;
   });
 
+  const [taskDate, setTaskDate] = useState(new Date());
+
   const [filter, setFilter] = useState("Toutes");
 
   useEffect(() => {
@@ -55,6 +57,7 @@ export default function App(props) {
         key={task.id}
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
+        taskDate = {taskDate}
       />
     ));
 
