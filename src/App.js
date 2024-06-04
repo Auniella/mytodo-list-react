@@ -45,6 +45,19 @@ export default function App(props) {
     localStorage.setItem("Tâches", JSON.stringify(resteTasks));
   }
 
+  function taskDate() {
+    const today = new Date();
+    const date = today.getDate();
+    const formattedDate = date.toString().padStart(2, "0");
+    const month = today.getMonth() + 1;
+    const formattedMonth = month.toString().padStart(2, "0");
+    const year = today.getFullYear();
+    const hour = today.getHours();
+    const minutes = today.getMinutes();
+    const seconds = today.getSeconds();
+    return `${formattedDate}/${formattedMonth}/${year}, ${hour}:${minutes}:${seconds}`;
+  }
+
   const taskList = tasks
     .filter(FILTER_MAP[filter])
     .map((task) => (
@@ -55,7 +68,7 @@ export default function App(props) {
         key={task.id}
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
-        taskDate = {new Date(task.date)}
+        taskDate={task.date}
       />
     ));
 
@@ -69,7 +82,13 @@ export default function App(props) {
   ));
 
   function addTask(name) {
-    const newTask = { name, completed: false, id: `note${nanoid()}, date: new Date().toISOString()` };
+    const newDate = taskDate();
+    const newTask = {
+      name,
+      completed: false,
+      id: `note${nanoid()}`,
+      date: newDate,
+    };
     setTasks([...tasks, newTask]);
     localStorage.setItem("Tâches", JSON.stringify(tasks));
   }
